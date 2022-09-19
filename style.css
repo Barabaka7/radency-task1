@@ -34,6 +34,13 @@ th{
     background-color: gray;
 }
 
+td{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100px;
+}
+
 th:first-child {
   border-radius: 5px 0 0 5px;
 }
