@@ -12,6 +12,11 @@ main{
     padding-left: 5px;
 }
 
+#statistics{
+    width: 80%;
+    padding-left: 5px;
+}
+
 table, th, td {
   border: none;
   border-collapse: separate;
@@ -50,48 +55,48 @@ th:last-child {
 }
 
 
-table td:nth-child(1){
+#activeNotes td:nth-child(1){
     padding-left: 10px;
     padding-right: 8px;
     width: 30px;
 }
 
-table td:nth-child(2){
+#activeNotes td:nth-child(2){
     color: black;
     width: 25%;
 }
 
-table td:nth-child(3){
+#activeNotes td:nth-child(3){
     width: 17%;
 }
 
-table td:nth-child(4){
+#activeNotes td:nth-child(4){
     width: 16%;
 }
 
-table td:nth-child(5){
+#activeNotes td:nth-child(5){
     width: 25%;
 }
 
-table td:nth-child(6){
+#activeNotes td:nth-child(6){
     width: 16%;
 }
 
-table td:nth-child(7){
+#activeNotes td:nth-child(7){
     width: 20px;
 }
 
-table td:nth-child(8){
+#activeNotes td:nth-child(8){
     width: 20px;
 }
 
-table td:nth-child(9){
+#activeNotes td:nth-child(9){
     width: 20px;
 }
 
 tr.tableHeader{
     color: white;
-    height: 20px;
+    height: 30px;
     text-align: left;
     /* background-color: gray; */
 }
@@ -105,3 +110,35 @@ img.categoryIcon{
     height: 30px;
     width: 30px;
 }
+
+a.toArchive {
+    color:rgb(96, 92, 92);
+    float: right;
+    margin-right: 20%;
+}
+
+h1, h2{
+    margin-bottom: 10px;
+}
+
+#statistics td:nth-child(1){
+    padding-left: 10px;
+    padding-right: 8px;
+    width: 30px;
+}
+
+#statistics td:nth-child(2){
+    width: 40%;
+    color: black;
+}
+
+#statistics td:nth-child(3){
+    width: 10%;
+}
+
+#statistics td:nth-child(3){
+    width: auto;
+}
+
+
+

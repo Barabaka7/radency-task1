@@ -14,9 +14,10 @@
   </head>
   <body>
     <main>
-        <h1>Welcome to My Website</h1>  
+        <h1>Active Notes</h1>  
+        <a href="./archive.html" class="toArchive">To Archived Notes</a>
         <table id="activeNotes">
-            <colgroup>
+            <!-- <colgroup>
             <col class="column1">
             <col class="column2">
             <col class="column3">
@@ -26,7 +27,7 @@
             <col class="column7">
             <col class="column8">
             <col class="column9">
-        </colgroup>
+        </colgroup> -->
             <thead>
             <tr class="tableHeader">
               <th></th>
@@ -41,17 +42,19 @@
             </tr>
         </thead>
         <tbody id="activeNotesBody">
-            <!-- <tr class="regularRow">
-                <td><img class="categoryIcon" src="src/img/icons8-idea-96.png"></td>
-                <td>Mare</td>
-                <td>Mare</td>
-                <td>Mare</td>
-                <td>Mare</td>
-                <td>Mare</td>
-                <td><img class="tableHeaderIcon" src="src/img/icons8-edit-90(1).png"></td>
-                <td><img class="tableHeaderIcon" src="src/img/icons8-archive-96(1).png"></td>
-                <td><img class="tableHeaderIcon" src="src/img/icons8-delete-90(1).png"></td>
-              </tr> -->
+        </tbody>
+        </table>
+        <h2>Statistics</h2>
+        <table id="statistics">
+          <thead>
+            <tr class="tableHeader">
+              <th></th>
+              <th>Note Category</th>
+              <th>Active</th>
+              <th>Archived</th>
+            </tr>
+        </thead>
+        <tbody id="statisticsBody">
         </tbody>
         </table>
     </main>

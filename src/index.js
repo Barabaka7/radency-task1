@@ -30,4 +30,32 @@ const showNotes = (notesArr) => {
   });
 };
 
+const showStatistics = (categoryObj) => {
+  let newRow = "";
+  let statisiticsBody = document.getElementById("statisticsBody");
+
+  Object.keys(categoryObj).forEach((category) => {
+    console.log(typeof category);
+    newRow = `<tr class="regularRow">
+  <td><img class="categoryIcon" src="${CATEGORY[category].categoryIcon}"></td>
+  <td>${CATEGORY[category].categoryName}</td>
+  <td>
+      ${
+        NOTES.filter(
+          (note) => note.category === Number(category) && !note.isArchived
+        ).length
+      }
+  </td>
+  <td>${
+    NOTES.filter(
+      (note) => note.category === Number(category) && note.isArchived
+    ).length
+  }</td>
+</tr>`;
+    statisiticsBody.innerHTML += newRow;
+  });
+};
+
 showNotes(NOTES);
+
+showStatistics(CATEGORY);
