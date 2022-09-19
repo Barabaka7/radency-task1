@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta
+      name="description"
+      content="Test task1 for Radency"
+    />
+    <title>Radency Task 1: Archived Noted</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="#">
+  </head>
+  <body>
+    <main>
+        <h1>Archived Notes</h1>  
+        <a href="./index.html" class="toArchive">To Active Notes</a>
+        <table id="archivedNotes">
+            <thead>
+            <tr class="tableHeader">
+              <th></th>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Category</th>
+              <th>Content</th>
+              <th>Dates</th>
+              <th><img class="tableHeaderIcon" src="src/img/icons8-unarchive-48-white.png"></th>
+              <th><img class="tableHeaderIcon" src="src/img/icons8-delete-90-white.png"></th>
+            </tr>
+        </thead>
+        <tbody id="archivedNotesBody">
+        </tbody>
+        </table>
+    </main>
+    <script type="module" src="src/archive.js"></script>
+  </body>
+</html>

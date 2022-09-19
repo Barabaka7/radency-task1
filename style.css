@@ -9,12 +9,14 @@ main{
 
 #activeNotes {
     width: 80%;
-    padding-left: 5px;
 }
 
 #statistics{
     width: 80%;
-    padding-left: 5px;
+}
+
+#archivedNotes{
+    width: 80%;
 }
 
 table, th, td {
@@ -140,5 +142,70 @@ h1, h2{
     width: auto;
 }
 
+#archivedNotes td:nth-child(1){
+    padding-left: 10px;
+    padding-right: 8px;
+    width: 30px;
+}
 
+#archivedNotes td:nth-child(2){
+    color: black;
+    width: 25%;
+}
 
+#archivedNotes td:nth-child(3){
+    width: 17%;
+}
+
+#archivedNotes td:nth-child(4){
+    width: 16%;
+}
+
+#archivedNotes td:nth-child(5){
+    width: 25%;
+}
+
+#archivedNotes td:nth-child(6){
+    width: 16%;
+}
+
+#archivedNotes td:nth-child(7){
+    width: 20px;
+}
+
+#archivedNotes td:nth-child(8){
+    width: 20px;
+}
+
+button {
+    float: right;
+    margin-right: 20%;
+}
+
+.addNote{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.addNote input[type="text"]{
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 2px 2px;
+}
+
+.addNote select{
+    width: 40%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.addNote textarea{
+    width: 80%;
+    overflow-wrap: normal;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    margin-bottom: 15px;
+}

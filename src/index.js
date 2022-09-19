@@ -1,13 +1,14 @@
 import { NOTES, CATEGORY } from "./data.js";
 import { findDates } from "./utilities/parsingDates.js";
 
-const showNotes = (notesArr) => {
+const showActiveNotes = (notesArr) => {
   let newRow = "";
   let notesBody = document.getElementById("activeNotesBody");
 
-  notesArr.forEach((note) => {
-    newRow = `<tbody id="activeNotesBody">
-<tr class="regularRow">
+  notesArr
+    .filter((n) => !n.isArchived)
+    .forEach((note) => {
+      newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${
     CATEGORY[note.category].categoryIcon
   }"></td>
@@ -26,8 +27,8 @@ const showNotes = (notesArr) => {
   <td><img class="tableHeaderIcon" src="src/img/icons8-archive-96(1).png"></td>
   <td><img class="tableHeaderIcon" src="src/img/icons8-delete-90(1).png"></td>
 </tr>`;
-    notesBody.innerHTML += newRow;
-  });
+      notesBody.innerHTML += newRow;
+    });
 };
 
 const showStatistics = (categoryObj) => {
@@ -35,7 +36,6 @@ const showStatistics = (categoryObj) => {
   let statisiticsBody = document.getElementById("statisticsBody");
 
   Object.keys(categoryObj).forEach((category) => {
-    console.log(typeof category);
     newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${CATEGORY[category].categoryIcon}"></td>
   <td>${CATEGORY[category].categoryName}</td>
@@ -56,6 +56,17 @@ const showStatistics = (categoryObj) => {
   });
 };
 
-showNotes(NOTES);
+showActiveNotes(NOTES);
 
 showStatistics(CATEGORY);
+
+const handleClickCreateNoteButton = () => {
+  window.open(
+    "./createNote.html",
+    "popUpWindow",
+    "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
+  );
+};
+
+let createNoteButton = document.getElementById("createNoteButton");
+createNoteButton.addEventListener("click", handleClickCreateNoteButton);
