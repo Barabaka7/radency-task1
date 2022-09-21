@@ -1,27 +1,21 @@
-//import { NOTES, CATEGORY } from "./data.js";
+import { BASE_URL, getCategories } from "./utilities/fetchingData.js";
 
 const categoryMenu = document.querySelector("select");
 const form = document.querySelector("form");
-import { BASE_URL } from "./index.js";
 
-let CATEGORY = await fetch(`${BASE_URL}/category`)
-  .then((response) => response.json())
-  .then((data) => data);
-
-console.log(CATEGORY);
+let CATEGORY = await getCategories();
 
 CATEGORY.map((cat) => {
-  let name = CATEGORY[cat].categoryName;
-  categoryMenu.innerHTML += `<option key=${Number(
-    cat
-  )} value="${name}" text="${name}">${name}</option>`;
+  let name = cat.categoryName;
+  categoryMenu.innerHTML += `<option key=${cat.id} value="${name}" text="${name}">${name}</option>`;
 });
 
 const addNewNote = async (note) => {
   try {
     const response = await axios.post(`${BASE_URL}/notes`, note);
     const newTodoItem = response.data;
-    console.log(`Added a new Note!`, note);
+
+    form.parentElement.innerHTML = `<h3>Added a new Note!</h3>`;
     return newTodoItem;
   } catch (errors) {
     console.error(errors);
@@ -33,7 +27,6 @@ const handleSubmit = async (e) => {
 
   const formData = new FormData(form);
   const name = formData.get("newNoteName");
-  const category = formData.get("category");
   const text = formData.get("newNoteText");
 
   const categoryId =
@@ -46,8 +39,9 @@ const handleSubmit = async (e) => {
     noteContent: text,
     isArchived: false,
   };
+  await addNewNote(newNote);
 
-  const submitNote = await addNewNote(newNote);
+  window.close();
 };
 
 form.addEventListener("submit", handleSubmit);

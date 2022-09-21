@@ -55,6 +55,86 @@
       "category": 3,
       "noteContent": "1) Zavertailo; 2) Etre Sophie",
       "isArchived": false
+    },
+    {
+      "noteName": "Test",
+      "creationDate": "2022-09-21T17:32:14.898Z",
+      "category": "1",
+      "noteContent": "First added Note",
+      "isArchived": false,
+      "id": 8
+    },
+    {
+      "noteName": "Second Note To add",
+      "creationDate": "2022-09-21T17:47:38.898Z",
+      "category": "3",
+      "noteContent": "Fixed and Worked",
+      "isArchived": false,
+      "id": 9
+    },
+    {
+      "noteName": "Fix Stat",
+      "creationDate": "2022-09-21T17:49:28.059Z",
+      "category": "2",
+      "noteContent": "HOw to Fix Stat!",
+      "isArchived": false,
+      "id": 10
+    },
+    {
+      "noteName": "Tring to close",
+      "creationDate": "2022-09-21T18:19:23.872Z",
+      "category": "1",
+      "noteContent": "How to close js window",
+      "isArchived": false,
+      "id": 11
+    },
+    {
+      "noteName": "123",
+      "creationDate": "2022-09-21T18:23:45.489Z",
+      "category": "1",
+      "noteContent": "123",
+      "isArchived": false,
+      "id": 12
+    },
+    {
+      "noteName": "4546",
+      "creationDate": "2022-09-21T18:25:44.412Z",
+      "category": "2",
+      "noteContent": "45646",
+      "isArchived": true,
+      "id": 13
+    },
+    {
+      "noteName": "8999",
+      "creationDate": "2022-09-21T18:26:40.303Z",
+      "category": "3",
+      "noteContent": "Yu",
+      "isArchived": false,
+      "id": 14
+    },
+    {
+      "noteName": "Test 7",
+      "creationDate": "2022-09-21T18:30:56.718Z",
+      "category": "3",
+      "noteContent": "asdadwqeqwq",
+      "isArchived": true,
+      "id": 18
+    },
+    {
+      "noteName": "999",
+      "creationDate": "2022-09-21T18:38:26.411Z",
+      "category": "1",
+      "noteContent": "ass",
+      "isArchived": true,
+      "id": 19
+    },
+    {
+      "noteName": "New Note",
+      "creationDate": "2022-09-21T20:06:14.669Z",
+      "category": "2",
+      "noteContent": "asdadasda",
+      "isArchived": false,
+      "id": 20
     }
   ],
   "category": [
@@ -63,13 +143,15 @@
       "categoryName": "Idea",
       "categoryIcon": "src/img/icons8-idea-96.png"
     },
-   {  "id": 2,
+    {
+      "id": 2,
       "categoryName": "Task",
       "categoryIcon": "src/img/icons8-task-90.png"
     },
     {
       "id": 3,
       "categoryName": "Random Thought",
-      "categoryIcon": "src/img/icons8-thinking-male-90.png"}
+      "categoryIcon": "src/img/icons8-thinking-male-90.png"
+    }
   ]
 }

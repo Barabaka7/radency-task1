@@ -1,17 +1,23 @@
-//import { NOTES, CATEGORY } from "./data.js";
-
 import { findDates } from "./utilities/parsingDates.js";
+import { getNotes, getCategories, BASE_URL } from "./utilities/fetchingData.js";
 
 const notesBody = document.getElementById("activeNotesBody");
 const statisticsBody = document.getElementById("statisticsBody");
-export const BASE_URL = "http://localhost:3000";
 
 const handleClickArchiveNoteButton = (e) => {
   let noteToArchive = e.target.parentElement.getAttribute("key");
-  let NOTES_NEW = NOTES.filter((a) => a.noteId !== Number(noteToArchive));
-  console.log(NOTES_NEW);
-  showActiveNotes(NOTES_NEW);
-  showStatistics(CATEGORY);
+  axios
+    .patch(`${BASE_URL}/notes/${noteToArchive}`, { isArchived: true })
+    .then((response) => console.log(response.data))
+    .catch((err) => alert(err));
+};
+
+const handleClickDeleteNoteButton = (e) => {
+  let noteToDelete = e.target.parentElement.getAttribute("key");
+  axios
+    .delete(`${BASE_URL}/notes/${noteToDelete}`)
+    .then((response) => console.log(response.data))
+    .catch((err) => alert(err));
 };
 
 const addArchiveNoteListeners = () => {
@@ -21,24 +27,11 @@ const addArchiveNoteListeners = () => {
   );
 };
 
-const getNotes = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/NOTES`);
-    const NOTES = response.data;
-    return NOTES;
-  } catch (errors) {
-    console.error(errors);
-  }
-};
-
-const getCategories = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/CATEGORY`);
-    const CATEGORIES = response.data;
-    return CATEGORIES;
-  } catch (errors) {
-    console.error(errors);
-  }
+const addDeleteNoteListeners = () => {
+  const deleteNoteButton = document.getElementsByName("deleteNote");
+  deleteNoteButton.forEach((b) =>
+    b.addEventListener("click", handleClickDeleteNoteButton)
+  );
 };
 
 const showActiveNotes = (notesArr, categories) => {
@@ -50,7 +43,7 @@ const showActiveNotes = (notesArr, categories) => {
     .map((note) => {
       newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${
-    categories.filter((c) => c.id === note.category)[0].categoryIcon
+    categories.filter((c) => c.id === Number(note.category))[0].categoryIcon
   }"></td>
   <td>${note.noteName}</td>
   <td>${new Date(note.creationDate).toLocaleString("en-us", {
@@ -58,7 +51,9 @@ const showActiveNotes = (notesArr, categories) => {
     day: "numeric",
     year: "numeric",
   })}</td>
-  <td>${categories.filter((c) => c.id === note.category)[0].categoryName}</td>
+  <td>${
+    categories.filter((c) => c.id === Number(note.category))[0].categoryName
+  }</td>
   <td>${note.noteContent}</td>
   <td>
   ${findDates(note.noteContent) ? findDates(note.noteContent).join(",") : ""}
@@ -67,27 +62,34 @@ const showActiveNotes = (notesArr, categories) => {
   class="tableButton"
   type="button"
   name="editNote"
-  id="editNote"
   title="Edit this Note"
-  key=${note.noteId}
+  key=${note.id}
   onClick="">
   <img class="tableHeaderIcon" src="src/img/icons8-edit-90(1).png"></button></td>
   <td><button
   class="tableButton"
   type="button"
   name="archiveNote"
-  id="archiveNote"
   title="Archive this Note"
   onclick="handleClickArchiveNoteButton()"
   key=${
-    note.noteId
+    note.id
   }><img class="tableHeaderIcon" src="src/img/icons8-archive-96(1).png"></td>
-  <td><img class="tableHeaderIcon" src="src/img/icons8-delete-90(1).png"></td>
+  <td><button
+  class="tableButton"
+  type="button"
+  name="deleteNote"
+  title="Delete this Note"
+  onclick="handleClickDeleteNoteButton()"
+  key=${
+    note.id
+  }><img class="tableHeaderIcon" src="src/img/icons8-delete-90(1).png"></td>
 </tr>`;
       notesBody.innerHTML += newRow;
     });
 
   addArchiveNoteListeners();
+  addDeleteNoteListeners();
 };
 
 const showStatistics = (notesArr, categories) => {
@@ -99,13 +101,15 @@ const showStatistics = (notesArr, categories) => {
   <td>
       ${
         notesArr.filter(
-          (note) => note.category === category.id && !note.isArchived
+          (note) =>
+            Number(note.category) === Number(category.id) && !note.isArchived
         ).length
       }
   </td>
   <td>${
-    notesArr.filter((note) => note.category === category.id && note.isArchived)
-      .length
+    notesArr.filter(
+      (note) => Number(note.category) === Number(category.id) && note.isArchived
+    ).length
   }</td>
 </tr>`;
     statisticsBody.innerHTML += newRow;
