@@ -1,4 +1,4 @@
-export const NOTES = [
+export let NOTES = [
   {
     noteId: 1,
     noteName: "Arsenal Season Start",
@@ -79,3 +79,10 @@ export const CATEGORY = {
 // console.log(
 //   NOTES.filter((note) => note.category <= 3 && !note.isArchived).length
 // );
+
+let q = NOTES.filter((a) => a.noteId <= 2);
+//(n) => {
+//   console.log(n.noteName);
+//   n.noteName === "Arsenal Season Start";
+// });
+console.log(q);

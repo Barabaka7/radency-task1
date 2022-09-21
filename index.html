@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta
-      name="description"
-      content="Test task1 for Radency"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Test task1 for Radency" />
     <title>Radency Task 1</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" href="#" />
   </head>
   <body>
     <main>
-        <h1>Active Notes</h1>  
-        <a href="./archive.html" class="toArchive">To Archived Notes</a>
-        <table id="activeNotes">
-            <!-- <colgroup>
+      <h1>Active Notes</h1>
+      <a href="./archive.html" class="toArchive">To Archived Notes</a>
+      <table id="activeNotes">
+        <!-- <colgroup>
             <col class="column1">
             <col class="column2">
             <col class="column3">
@@ -28,37 +25,62 @@
             <col class="column8">
             <col class="column9">
         </colgroup> -->
-            <thead>
-            <tr class="tableHeader">
-              <th></th>
-              <th>Name</th>
-              <th>Created</th>
-              <th>Category</th>
-              <th>Content</th>
-              <th>Dates</th>
-              <th></th>
-              <th><img class="tableHeaderIcon" src="src/img/icons8-archive-96-white.png"></th>
-              <th><img class="tableHeaderIcon" src="src/img/icons8-delete-90-white.png"></th>
-            </tr>
+        <thead>
+          <tr class="tableHeader">
+            <th></th>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Dates</th>
+            <th></th>
+            <th>
+              <button
+                class="tableButton"
+                type="button"
+                name="archiveAll"
+                id="archiveAll"
+                title="Archive All Notes!"
+              >
+                <img
+                  class="tableHeaderIcon"
+                  src="src/img/icons8-archive-96-white.png"
+                />
+              </button>
+            </th>
+            <th>
+              <button
+                class="tableButton"
+                type="button"
+                name="deleteAll"
+                id="deleteAll"
+                title="Delete All Notes!"
+              >
+                <img
+                  class="tableHeaderIcon"
+                  src="src/img/icons8-delete-90-white.png"
+                />
+              </button>
+            </th>
+          </tr>
         </thead>
-        <tbody id="activeNotesBody">
-        </tbody>
-        </table>
-        <button id="createNoteButton">Create Note</button>
-        <h2>Statistics</h2>
-        <table id="statistics">
-          <thead>
-            <tr class="tableHeader">
-              <th></th>
-              <th>Note Category</th>
-              <th>Active</th>
-              <th>Archived</th>
-            </tr>
+        <tbody id="activeNotesBody"></tbody>
+      </table>
+      <button id="createNoteButton">Create Note</button>
+      <h2>Statistics</h2>
+      <table id="statistics">
+        <thead>
+          <tr class="tableHeader">
+            <th></th>
+            <th>Note Category</th>
+            <th>Active</th>
+            <th>Archived</th>
+          </tr>
         </thead>
-        <tbody id="statisticsBody">
-        </tbody>
-        </table>
+        <tbody id="statisticsBody"></tbody>
+      </table>
     </main>
     <script type="module" src="src/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   </body>
 </html>

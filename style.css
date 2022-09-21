@@ -1,51 +1,56 @@
-body{
-    font-family: 'Helvetica', sans-serif;
-    font-size: 14px;
+body {
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
 }
 
-main{
-    margin-left: 30px;
+main {
+  margin-left: 30px;
 }
 
 #activeNotes {
-    width: 80%;
+  width: 80%;
 }
 
-#statistics{
-    width: 80%;
+#statistics {
+  width: 80%;
 }
 
-#archivedNotes{
-    width: 80%;
+#archivedNotes {
+  width: 80%;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: none;
   border-collapse: separate;
   border-spacing: 0 10px;
 }
 
-th, td {
-    padding: 5px 3px;
-  }
-
-tr.regularRow{
-    background-color: rgb(226, 223, 223);
-    color: rgb(96, 92, 92);
-    height: 35px;
+th,
+td {
+  padding: 5px 3px;
 }
 
-table tr.regularRow:hover {background-color: rgb(186, 183, 183);}
-
-th{
-    background-color: gray;
+tr.regularRow {
+  background-color: rgb(226, 223, 223);
+  color: rgb(96, 92, 92);
+  height: 35px;
 }
 
-td{
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100px;
+table tr.regularRow:hover {
+  background-color: rgb(186, 183, 183);
+}
+
+th {
+  background-color: gray;
+}
+
+td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100px;
 }
 
 th:first-child {
@@ -56,156 +61,165 @@ th:last-child {
   border-radius: 0 5px 5px 0;
 }
 
-
-#activeNotes td:nth-child(1){
-    padding-left: 10px;
-    padding-right: 8px;
-    width: 30px;
+#activeNotes td:nth-child(1) {
+  padding-left: 10px;
+  padding-right: 8px;
+  width: 30px;
 }
 
-#activeNotes td:nth-child(2){
-    color: black;
-    width: 25%;
+#activeNotes td:nth-child(2) {
+  color: black;
+  width: 25%;
 }
 
-#activeNotes td:nth-child(3){
-    width: 17%;
+#activeNotes td:nth-child(3) {
+  width: 17%;
 }
 
-#activeNotes td:nth-child(4){
-    width: 16%;
+#activeNotes td:nth-child(4) {
+  width: 16%;
 }
 
-#activeNotes td:nth-child(5){
-    width: 25%;
+#activeNotes td:nth-child(5) {
+  width: 25%;
 }
 
-#activeNotes td:nth-child(6){
-    width: 16%;
+#activeNotes td:nth-child(6) {
+  width: 16%;
 }
 
-#activeNotes td:nth-child(7){
-    width: 20px;
+#activeNotes td:nth-child(7) {
+  width: 20px;
 }
 
-#activeNotes td:nth-child(8){
-    width: 20px;
+#activeNotes td:nth-child(8) {
+  width: 20px;
 }
 
-#activeNotes td:nth-child(9){
-    width: 20px;
+#activeNotes td:nth-child(9) {
+  width: 20px;
 }
 
-tr.tableHeader{
-    color: white;
-    height: 30px;
-    text-align: left;
-    /* background-color: gray; */
+tr.tableHeader {
+  color: white;
+  height: 30px;
+  text-align: left;
+  /* background-color: gray; */
 }
 
-img.tableHeaderIcon{
-    height: 20px;
-    width: 20px;
+img.tableHeaderIcon {
+  height: 20px;
+  width: 20px;
 }
 
-img.categoryIcon{
-    height: 30px;
-    width: 30px;
+img.categoryIcon {
+  height: 30px;
+  width: 30px;
 }
 
 a.toArchive {
-    color:rgb(96, 92, 92);
-    float: right;
-    margin-right: 20%;
+  color: rgb(96, 92, 92);
+  float: right;
+  margin-right: 20%;
 }
 
-h1, h2{
-    margin-bottom: 10px;
+h1,
+h2 {
+  margin-bottom: 10px;
 }
 
-#statistics td:nth-child(1){
-    padding-left: 10px;
-    padding-right: 8px;
-    width: 30px;
+#statistics td:nth-child(1) {
+  padding-left: 10px;
+  padding-right: 8px;
+  width: 30px;
 }
 
-#statistics td:nth-child(2){
-    width: 40%;
-    color: black;
+#statistics td:nth-child(2) {
+  width: 40%;
+  color: black;
 }
 
-#statistics td:nth-child(3){
-    width: 10%;
+#statistics td:nth-child(3) {
+  width: 10%;
 }
 
-#statistics td:nth-child(3){
-    width: auto;
+#statistics td:nth-child(3) {
+  width: auto;
 }
 
-#archivedNotes td:nth-child(1){
-    padding-left: 10px;
-    padding-right: 8px;
-    width: 30px;
+#archivedNotes td:nth-child(1) {
+  padding-left: 10px;
+  padding-right: 8px;
+  width: 30px;
 }
 
-#archivedNotes td:nth-child(2){
-    color: black;
-    width: 25%;
+#archivedNotes td:nth-child(2) {
+  color: black;
+  width: 25%;
 }
 
-#archivedNotes td:nth-child(3){
-    width: 17%;
+#archivedNotes td:nth-child(3) {
+  width: 17%;
 }
 
-#archivedNotes td:nth-child(4){
-    width: 16%;
+#archivedNotes td:nth-child(4) {
+  width: 16%;
 }
 
-#archivedNotes td:nth-child(5){
-    width: 25%;
+#archivedNotes td:nth-child(5) {
+  width: 25%;
 }
 
-#archivedNotes td:nth-child(6){
-    width: 16%;
+#archivedNotes td:nth-child(6) {
+  width: 16%;
 }
 
-#archivedNotes td:nth-child(7){
-    width: 20px;
+#archivedNotes td:nth-child(7) {
+  width: 20px;
 }
 
-#archivedNotes td:nth-child(8){
-    width: 20px;
+#archivedNotes td:nth-child(8) {
+  width: 20px;
 }
 
 button {
-    float: right;
-    margin-right: 20%;
+  float: right;
+  margin-right: 20%;
 }
 
-.addNote{
-    width: 90%;
-    margin: 0 auto;
+.addNote {
+  width: 90%;
+  margin: 0 auto;
 }
 
-.addNote input[type="text"]{
-    width: 80%;
-    margin-bottom: 10px;
-    padding: 2px 2px;
+.addNote input[type="text"] {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 2px 2px;
 }
 
-.addNote select{
-    width: 40%;
-    height: auto;
-    margin-bottom: 10px;
+.addNote select {
+  width: 40%;
+  height: auto;
+  margin-bottom: 10px;
 }
 
-.addNote textarea{
-    width: 80%;
-    overflow-wrap: normal;
-    padding: 10px;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
-    margin-bottom: 15px;
+.addNote textarea {
+  width: 80%;
+  overflow-wrap: normal;
+  padding: 10px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  margin-bottom: 15px;
+}
+
+button.tableButton {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
 }

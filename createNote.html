@@ -15,7 +15,7 @@
   <body>
     <main>
         <h1>Create New Note</h1>
-        <form class="addNote">
+        <form class="addNote" id="createNoteForm">
             <input type="text" id="newNoteName" name="newNoteName" placeholder="Add Note Name Here" /><br>
             <label for="category">Select Category</label><br>
             <select id="category" name="category">
@@ -23,9 +23,9 @@
             <textarea id="newNoteText" name="newNoteText" placeholder="Add Note Text Here"
             cols="30"
             rows="3"></textarea><br>
-            <input type="submit" value="Add Note" />
+            <input type="submit"  value="Add Note" />
         </form>
     </main>
-    <script type="module" src="src/addNote.js"></script>
+    <script type="module" src="src/createNote.js"></script>
   </body>
 </html>
