@@ -4,6 +4,8 @@ import { getNotes, getCategories, BASE_URL } from "./utilities/fetchingData.js";
 const notesBody = document.getElementById("activeNotesBody");
 const statisticsBody = document.getElementById("statisticsBody");
 
+//******** Here is a block of handling the manipulations with distinct note */
+
 const handleClickArchiveNoteButton = (e) => {
   let noteToArchive = e.target.parentElement.getAttribute("key");
   axios
@@ -34,6 +36,8 @@ const addDeleteNoteListeners = () => {
   );
 };
 
+//******** **************** */
+
 const showActiveNotes = (notesArr, categories) => {
   // notesBody.innerHTML = "";
   let newRow = "";
@@ -63,15 +67,13 @@ const showActiveNotes = (notesArr, categories) => {
   type="button"
   name="editNote"
   title="Edit this Note"
-  key=${note.id}
-  onClick="">
+  key=${note.id}>
   <img class="tableHeaderIcon" src="src/img/icons8-edit-90(1).png"></button></td>
   <td><button
   class="tableButton"
   type="button"
   name="archiveNote"
   title="Archive this Note"
-  onclick="handleClickArchiveNoteButton()"
   key=${
     note.id
   }><img class="tableHeaderIcon" src="src/img/icons8-archive-96(1).png"></td>
@@ -80,7 +82,6 @@ const showActiveNotes = (notesArr, categories) => {
   type="button"
   name="deleteNote"
   title="Delete this Note"
-  onclick="handleClickDeleteNoteButton()"
   key=${
     note.id
   }><img class="tableHeaderIcon" src="src/img/icons8-delete-90(1).png"></td>
@@ -118,7 +119,6 @@ const showStatistics = (notesArr, categories) => {
 
 const main = async () => {
   showActiveNotes(await getNotes(), await getCategories());
-
   showStatistics(await getNotes(), await getCategories());
 };
 
@@ -130,37 +130,31 @@ const handleClickCreateNoteButton = () => {
     "popUpWindow",
     "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
   );
-
-  // axios
-  //   .post(`${BASE_URL}/NOTES`, {
-  //     id: 8,
-  //     noteName: "Currency Rate",
-  //     // creationDate: new Date(),
-  //     // category: 1,
-  //     // noteContent:
-  //     //   "It's quite a funny things to predict currency rate in Ukraine",
-  //     // isArchived: false,
-  //     // categoryName: "Srask",
-  //     // categoryIcon: "src/img/icons8-task-90.png",
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
 };
 
-const handleClickArchiveAllButton = () => {
-  NOTES.filter((n) => !n.isArchived).forEach((n) => (n.isArchived = true));
-  showActiveNotes(NOTES);
-  showStatistics(CATEGORY);
+//******** Here is a block of handling the general manipulations with notes */
+
+const handleClickArchiveAllButton = async () => {
+  const response = await axios.get(`${BASE_URL}/NOTES?isArchived=false`);
+  const NOTES_TO_ARCHIVE = response.data;
+
+  NOTES_TO_ARCHIVE.forEach((n) => {
+    axios
+      .patch(`${BASE_URL}/notes/${n.id}`, { isArchived: true })
+      .then((response) => console.log(response.data))
+      .catch((err) => alert(err));
+  });
 };
 
-const handleClickDeleteAllButton = () => {
-  NOTES.length = 0;
-  showActiveNotes(NOTES);
-  showStatistics(CATEGORY);
+const handleClickDeleteAllButton = async () => {
+  const response = await axios.get(`${BASE_URL}/NOTES?isArchived=false`);
+  const NOTES_TO_DELETE = response.data;
+  NOTES_TO_DELETE.forEach((n) => {
+    axios
+      .delete(`${BASE_URL}/notes/${n.id}`)
+      .then((response) => console.log(response.data))
+      .catch((err) => alert(err));
+  });
 };
 
 const createNoteButton = document.getElementById("createNoteButton");
@@ -170,3 +164,5 @@ const deleteAllButton = document.getElementById("deleteAll");
 createNoteButton.addEventListener("click", handleClickCreateNoteButton);
 archiveAllButton.addEventListener("click", handleClickArchiveAllButton);
 deleteAllButton.addEventListener("click", handleClickDeleteAllButton);
+
+// ******************

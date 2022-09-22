@@ -22,7 +22,7 @@
       "creationDate": "2022-09-05T16:10:00Z",
       "category": 2,
       "noteContent": "Don't forget to buy new winter Bridgestone Tyres",
-      "isArchived": true
+      "isArchived": false
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "creationDate": "2022-02-25T12:02:00Z",
       "category": 2,
       "noteContent": "Russian Warship go fuck yourself",
-      "isArchived": true
+      "isArchived": false
     },
     {
       "id": 6,
@@ -55,14 +55,6 @@
       "category": 3,
       "noteContent": "1) Zavertailo; 2) Etre Sophie",
       "isArchived": false
-    },
-    {
-      "noteName": "Test",
-      "creationDate": "2022-09-21T17:32:14.898Z",
-      "category": "1",
-      "noteContent": "First added Note",
-      "isArchived": false,
-      "id": 8
     },
     {
       "noteName": "Second Note To add",
@@ -89,44 +81,12 @@
       "id": 11
     },
     {
-      "noteName": "123",
-      "creationDate": "2022-09-21T18:23:45.489Z",
-      "category": "1",
-      "noteContent": "123",
-      "isArchived": false,
-      "id": 12
-    },
-    {
-      "noteName": "4546",
-      "creationDate": "2022-09-21T18:25:44.412Z",
-      "category": "2",
-      "noteContent": "45646",
-      "isArchived": true,
-      "id": 13
-    },
-    {
       "noteName": "8999",
       "creationDate": "2022-09-21T18:26:40.303Z",
       "category": "3",
       "noteContent": "Yu",
-      "isArchived": false,
+      "isArchived": true,
       "id": 14
-    },
-    {
-      "noteName": "Test 7",
-      "creationDate": "2022-09-21T18:30:56.718Z",
-      "category": "3",
-      "noteContent": "asdadwqeqwq",
-      "isArchived": true,
-      "id": 18
-    },
-    {
-      "noteName": "999",
-      "creationDate": "2022-09-21T18:38:26.411Z",
-      "category": "1",
-      "noteContent": "ass",
-      "isArchived": true,
-      "id": 19
     },
     {
       "noteName": "New Note",
