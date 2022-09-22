@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Test task1 for Radency" />
+    <title>Radency Task 1: Create Note</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <main>
+      <h1>Create New Note</h1>
+      <form class="addNote" id="createNoteForm">
+        <input
+          type="text"
+          id="newNoteName"
+          name="newNoteName"
+          placeholder="Add Note Name Here"
+        /><br />
+        <label for="category">Select Category</label><br />
+        <select id="category" name="category"></select>
+        <textarea
+          id="newNoteText"
+          name="newNoteText"
+          placeholder="Add Note Text Here"
+          cols="30"
+          rows="3"
+        ></textarea
+        ><br />
+        <input type="submit" value="Add Note" id="submitButton" disabled />
+      </form>
+    </main>
+    <script type="module" src="src/createNote.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  </body>
+</html>

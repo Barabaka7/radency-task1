@@ -1,0 +1,117 @@
+{
+  "NOTES": [
+    {
+      "id": 1,
+      "noteName": "Arsenal Season Start",
+      "creationDate": "2022-08-22T19:10:00Z",
+      "category": 1,
+      "noteContent": "It should be good idea to get another middlefield because of high risk of new Thomas Party injury",
+      "isArchived": false
+    },
+    {
+      "id": 2,
+      "noteName": "Main principle behind 4 houses of Hogwarts ",
+      "creationDate": "2022-01-11T06:23:09Z",
+      "category": 1,
+      "noteContent": "It seems to me that 4 types of temperament is the main idea behind four different houses of Hogwarts",
+      "isArchived": false
+    },
+    {
+      "id": 3,
+      "noteName": "Winter Tyres",
+      "creationDate": "2022-09-05T16:10:00Z",
+      "category": 2,
+      "noteContent": "Don't forget to buy new winter Bridgestone Tyres",
+      "isArchived": false
+    },
+    {
+      "id": 4,
+      "noteName": "Rescheduling of my visit to dentist",
+      "creationDate": "2022-07-12T18:02:00Z",
+      "category": 2,
+      "noteContent": "Need to plan three next visits to my dentist for 19/7/2022, 2/8/2022 та 28/11/2022",
+      "isArchived": false
+    },
+    {
+      "id": 5,
+      "noteName": "Make Donate for Pritula Foundation",
+      "creationDate": "2022-02-25T12:02:00Z",
+      "category": 2,
+      "noteContent": "Russian Warship go fuck yourself",
+      "isArchived": false
+    },
+    {
+      "id": 6,
+      "noteName": "Surf Thought 12",
+      "creationDate": "2022-01-01T12:00:00Z",
+      "category": "1",
+      "noteContent": "Ocean surf is good metaphore for usual life: you had to paddle 98% of time to have 2% enjoinhg of riding the wave",
+      "isArchived": false
+    },
+    {
+      "id": 7,
+      "noteName": "Croissant Rates",
+      "creationDate": "2022-09-02T10:30:00Z",
+      "category": 3,
+      "noteContent": "1) Zavertailo; 2) Etre Sophie",
+      "isArchived": false
+    },
+    {
+      "noteName": "Second Note To add",
+      "creationDate": "2022-09-21T17:47:38.898Z",
+      "category": "3",
+      "noteContent": "Fixed and Worked",
+      "isArchived": false,
+      "id": 9
+    },
+    {
+      "noteName": "Fix Stat",
+      "creationDate": "2022-09-21T17:49:28.059Z",
+      "category": "2",
+      "noteContent": "HOw to Fix Stat!",
+      "isArchived": false,
+      "id": 10
+    },
+    {
+      "noteName": "Tring to close",
+      "creationDate": "2022-09-21T18:19:23.872Z",
+      "category": "1",
+      "noteContent": "How to close js window",
+      "isArchived": false,
+      "id": 11
+    },
+    {
+      "noteName": "8999",
+      "creationDate": "2022-09-21T18:26:40.303Z",
+      "category": "3",
+      "noteContent": "Yu",
+      "isArchived": true,
+      "id": 14
+    },
+    {
+      "noteName": "New Note 222",
+      "creationDate": "2022-09-21T20:06:14.669Z",
+      "category": "2",
+      "noteContent": "asdadasda!!!",
+      "isArchived": false,
+      "id": 20
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "categoryName": "Idea",
+      "categoryIcon": "src/img/icons8-idea-96.png"
+    },
+    {
+      "id": 2,
+      "categoryName": "Task",
+      "categoryIcon": "src/img/icons8-task-90.png"
+    },
+    {
+      "id": 3,
+      "categoryName": "Random Thought",
+      "categoryIcon": "src/img/icons8-thinking-male-90.png"
+    }
+  ]
+}

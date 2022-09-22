@@ -1,11 +1,11 @@
-export const NOTES = [
+export let NOTES = [
   {
     noteId: 1,
     noteName: "Arsenal Season Start",
     creationDate: "2022-08-22T19:10:00Z",
     category: 1,
     noteContent:
-      "It should be good idea to get another midlefield because of high risk of new Thomas Party injury",
+      "It should be good idea to get another middlefield because of high risk of new Thomas Party injury",
     isArchived: false,
   },
   {
@@ -75,3 +75,14 @@ export const CATEGORY = {
     categoryIcon: "src/img/icons8-thinking-male-90.png",
   },
 };
+
+// console.log(
+//   NOTES.filter((note) => note.category <= 3 && !note.isArchived).length
+// );
+
+let q = NOTES.filter((a) => a.noteId <= 2);
+//(n) => {
+//   console.log(n.noteName);
+//   n.noteName === "Arsenal Season Start";
+// });
+console.log(q);
