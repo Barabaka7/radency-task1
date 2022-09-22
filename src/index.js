@@ -22,10 +22,26 @@ const handleClickDeleteNoteButton = (e) => {
     .catch((err) => alert(err));
 };
 
+const handleClickEditNoteButton = (e) => {
+  let noteToEdit = e.target.parentElement.getAttribute("key");
+  window.open(
+    `./editNote.html?key=${noteToEdit}`,
+    "popUpWindow",
+    "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
+  );
+};
+
 const addArchiveNoteListeners = () => {
   const archiveNoteButton = document.getElementsByName("archiveNote");
   archiveNoteButton.forEach((b) =>
     b.addEventListener("click", handleClickArchiveNoteButton)
+  );
+};
+
+const addEditNoteListeners = () => {
+  const editNoteButton = document.getElementsByName("editNote");
+  editNoteButton.forEach((b) =>
+    b.addEventListener("click", handleClickEditNoteButton)
   );
 };
 
@@ -91,6 +107,7 @@ const showActiveNotes = (notesArr, categories) => {
 
   addArchiveNoteListeners();
   addDeleteNoteListeners();
+  addEditNoteListeners();
 };
 
 const showStatistics = (notesArr, categories) => {
