@@ -7,7 +7,10 @@ const handleClickUnarchiveNoteButton = (e) => {
   let noteToUnarchive = e.target.parentElement.getAttribute("key");
   axios
     .patch(`${BASE_URL}/notes/${noteToUnarchive}`, { isArchived: false })
-    .then((response) => console.log(response.data))
+    .then((response) => {
+      console.log(response.data);
+      document.body.dispatchEvent(new CustomEvent("notes-updated"));
+    })
     .catch((err) => alert(err));
 };
 
@@ -15,7 +18,10 @@ const handleClickDeleteNoteButton = (e) => {
   let noteToDelete = e.target.parentElement.getAttribute("key");
   axios
     .delete(`${BASE_URL}/notes/${noteToDelete}`)
-    .then((response) => console.log(response.data))
+    .then((response) => {
+      console.log(response.data);
+      document.body.dispatchEvent(new CustomEvent("notes-updated"));
+    })
     .catch((err) => alert(err));
 };
 
@@ -38,10 +44,12 @@ const addDeleteNoteListeners = () => {
 const showArchiveNotes = (notesArr, categories) => {
   let newRow = "";
   let notesBody = document.getElementById("archivedNotesBody");
+  notesBody.innerHTML = "";
 
   notesArr
     .filter((n) => n.isArchived)
-    .map((note) => {
+    .forEach((note) => {
+      const findedDates = findDates(note.noteContent);
       newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${
     categories.filter((c) => c.id === Number(note.category))[0].categoryIcon
@@ -57,7 +65,7 @@ const showArchiveNotes = (notesArr, categories) => {
   }</td>
   <td>${note.noteContent}</td>
   <td>
-  ${findDates(note.noteContent) ? findDates(note.noteContent).join(",") : ""}
+  ${findedDates ? findedDates.join(", ") : ""}
   </td>
   <td>
   <button
@@ -85,10 +93,18 @@ const showArchiveNotes = (notesArr, categories) => {
   addDeleteNoteListeners();
 };
 
-const archive = async () =>
-  showArchiveNotes(await getNotes(), await getCategories());
+const renderArchive = async () => {
+  const notes = await getNotes();
+  const categories = await getCategories();
+  showArchiveNotes(notes, categories);
+};
 
-archive();
+const main = async () => {
+  document.body.addEventListener("notes-updated", () => renderArchive());
+  return renderArchive();
+};
+
+main();
 
 const handleClicUnarchiveAllButton = async () => {
   const response = await axios.get(`${BASE_URL}/NOTES?isArchived=true`);

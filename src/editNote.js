@@ -38,17 +38,15 @@ const populateForm = async () => {
 populateForm();
 
 const updateNote = async (updatedInfo) => {
-  try {
-    const response = await axios.patch(
-      `${BASE_URL}/notes/${noteToEditId}`,
-      updatedInfo
-    );
-    const updatedNote = response.data;
-    form.parentElement.innerHTML = `<h3>Note has been updated!</h3>`;
-    return updatedNote;
-  } catch (errors) {
-    console.error(errors);
-  }
+  await axios
+    .patch(`${BASE_URL}/notes/${noteToEditId}`, updatedInfo)
+    .then((response) => {
+      console.log(response.data);
+      window.opener.document.body.dispatchEvent(
+        new CustomEvent("notes-updated")
+      );
+    });
+  form.parentElement.innerHTML = `<h3>Note has been updated!</h3>`;
 };
 
 const handleSubmit = async (e) => {

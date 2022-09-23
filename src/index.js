@@ -10,7 +10,10 @@ const handleClickArchiveNoteButton = (e) => {
   let noteToArchive = e.target.parentElement.getAttribute("key");
   axios
     .patch(`${BASE_URL}/notes/${noteToArchive}`, { isArchived: true })
-    .then((response) => console.log(response.data))
+    .then((response) => {
+      console.log(response.data);
+      document.body.dispatchEvent(new CustomEvent("notes-updated"));
+    })
     .catch((err) => alert(err));
 };
 
@@ -18,14 +21,18 @@ const handleClickDeleteNoteButton = (e) => {
   let noteToDelete = e.target.parentElement.getAttribute("key");
   axios
     .delete(`${BASE_URL}/notes/${noteToDelete}`)
-    .then((response) => console.log(response.data))
+    .then((response) => {
+      console.log(response.data);
+      document.body.dispatchEvent(new CustomEvent("notes-updated"));
+    })
     .catch((err) => alert(err));
 };
 
 const handleClickEditNoteButton = (e) => {
   let noteToEdit = e.target.parentElement.getAttribute("key");
+
   window.open(
-    `./editNote.html?key=${noteToEdit}`,
+    `./editNote?key=${noteToEdit}`,
     "popUpWindow",
     "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
   );
@@ -52,15 +59,28 @@ const addDeleteNoteListeners = () => {
   );
 };
 
+const handleClickCreateNoteButton = () => {
+  window.open(
+    "./createNote",
+    "popUpWindow",
+    "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
+  );
+};
+
+const createNoteButton = document.getElementById("createNoteButton");
+const archiveAllButton = document.getElementById("archiveAll");
+const deleteAllButton = document.getElementById("deleteAll");
+
 //******** **************** */
 
 const showActiveNotes = (notesArr, categories) => {
-  // notesBody.innerHTML = "";
+  notesBody.innerHTML = "";
   let newRow = "";
 
   notesArr
     .filter((n) => !n.isArchived)
-    .map((note) => {
+    .forEach((note) => {
+      const findedDates = findDates(note.noteContent);
       newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${
     categories.filter((c) => c.id === Number(note.category))[0].categoryIcon
@@ -76,7 +96,7 @@ const showActiveNotes = (notesArr, categories) => {
   }</td>
   <td>${note.noteContent}</td>
   <td>
-  ${findDates(note.noteContent) ? findDates(note.noteContent).join(",") : ""}
+  ${findedDates ? findedDates.join(", ") : ""}
   </td>
   <td><button
   class="tableButton"
@@ -111,8 +131,9 @@ const showActiveNotes = (notesArr, categories) => {
 };
 
 const showStatistics = (notesArr, categories) => {
+  statisticsBody.innerHTML = "";
   let newRow = "";
-  categories.map((category) => {
+  categories.forEach((category) => {
     newRow = `<tr class="regularRow">
   <td><img class="categoryIcon" src="${category.categoryIcon}"></td>
   <td>${category.categoryName}</td>
@@ -134,20 +155,19 @@ const showStatistics = (notesArr, categories) => {
   });
 };
 
+const render = async () => {
+  const notes = await getNotes();
+  const categories = await getCategories();
+  showActiveNotes(notes, categories);
+  showStatistics(notes, categories);
+};
+
 const main = async () => {
-  showActiveNotes(await getNotes(), await getCategories());
-  showStatistics(await getNotes(), await getCategories());
+  document.body.addEventListener("notes-updated", () => render());
+  return render();
 };
 
 main();
-
-const handleClickCreateNoteButton = () => {
-  window.open(
-    "./createNote.html",
-    "popUpWindow",
-    "height=300,width=600,left=200,top=200,resizable=yes,scrollbars=yes,toolbar=yes,status=yes"
-  );
-};
 
 //******** Here is a block of handling the general manipulations with notes */
 
@@ -158,7 +178,10 @@ const handleClickArchiveAllButton = async () => {
   NOTES_TO_ARCHIVE.forEach((n) => {
     axios
       .patch(`${BASE_URL}/notes/${n.id}`, { isArchived: true })
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data);
+        document.body.dispatchEvent(new CustomEvent("notes-updated"));
+      })
       .catch((err) => alert(err));
   });
 };
@@ -169,14 +192,13 @@ const handleClickDeleteAllButton = async () => {
   NOTES_TO_DELETE.forEach((n) => {
     axios
       .delete(`${BASE_URL}/notes/${n.id}`)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data);
+        document.body.dispatchEvent(new CustomEvent("notes-updated"));
+      })
       .catch((err) => alert(err));
   });
 };
-
-const createNoteButton = document.getElementById("createNoteButton");
-const archiveAllButton = document.getElementById("archiveAll");
-const deleteAllButton = document.getElementById("deleteAll");
 
 createNoteButton.addEventListener("click", handleClickCreateNoteButton);
 archiveAllButton.addEventListener("click", handleClickArchiveAllButton);

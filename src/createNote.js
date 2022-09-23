@@ -14,11 +14,14 @@ CATEGORY.map((cat) => {
 
 const addNewNote = async (note) => {
   try {
-    const response = await axios.post(`${BASE_URL}/notes`, note);
-    const newNote = response.data;
+    await axios.post(`${BASE_URL}/notes`, note).then((response) => {
+      console.log(response.data);
+      window.opener.document.body.dispatchEvent(
+        new CustomEvent("notes-updated")
+      );
+    });
 
     form.parentElement.innerHTML = `<h3>Added a new Note!</h3>`;
-    return newNote;
   } catch (errors) {
     console.error(errors);
   }
